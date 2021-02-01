@@ -27,12 +27,12 @@ const question = [
         message: 'enter a 4 digit code sequence',
         required: true,
         validate: function (value) {
-            let pass = value.match(/^[0-9]{4}$/);
+            let pass = value.match(/^[1-6]{4}$/);
             if (pass) {
                 return true;
             }
 
-            return 'Please enter a valid sequence';
+            return 'Please enter a valid sequence of 4 digits between 1 & 6 inclusive.';
         }
     }
 ];
