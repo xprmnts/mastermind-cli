@@ -32,7 +32,7 @@ const showTitleScreen = () => {
     );
     console.log(chalk.bold.blue('Instructions'));
     console.log(
-        '1. The code is 4 digits long.\n2. There are 6 possible values per digit.\n3. You will have 10 attempts as the decoder to try to guess the code.\n\n\n'
+        '1. The code is 4 digits long. Enter a contiguous sequence of digits. \n2. There are 6 possible values per digit. Each digit must be between 1-6 (inclusive). \n3. You will have 10 attempts as the decoder to try to guess the code.\n\n\n'
     );
 
     /*
