@@ -39,9 +39,9 @@ function game() {
                 partialMatchCount
             } = validateGuess(playerGuess, secret);
 
-            console.log(codeMatch, exactMatchCount, partialMatchCount);
+            console.log(success, exactMatchCount, partialMatchCount);
 
-            if (codeMatch) {
+            if (success) {
                 // Game Over
                 // Draw Table
                 console.log(_history);

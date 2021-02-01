@@ -28,7 +28,7 @@ const validateGuess = (guess, code) => {
         }
     }
 
-    const codeMatch = codeMap.every(element => element === 'E');
+    const success = codeMap.every(element => element === 'E');
 
     const exactMatchCount = codeMap.reduce((total, element) => {
         return element === 'E' ? total + 1 : total + 0;
@@ -39,7 +39,7 @@ const validateGuess = (guess, code) => {
     }, 0);
 
     return {
-        codeMatch,
+        success,
         exactMatchCount,
         partialMatchCount
     };
