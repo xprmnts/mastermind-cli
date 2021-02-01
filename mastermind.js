@@ -1,23 +1,38 @@
 /*
  * Packages
  */
-const inquirer = require('inquirer');
+const inquirer = require('inquirer'); // to get user prompts
+const { table } = require('table'); // to render table
+const chalk = require('chalk'); // to make the table & console pretty
 const generateSecretCode = require('./bin/generateSecretCode');
 const validateGuess = require('./validateGuess');
 
 // Sample Config
-const _defaultAttempts = 3;
+const _defaultAttempts = 10;
 const _defaultChoices = 6;
 const _defaultPegs = 4;
 
-const _history = [];
+let data, config, output;
+
+data = [
+    [
+        chalk.bold('Guess'),
+        chalk.bold('Exact Matches'),
+        chalk.bold('Partial Matches'),
+        chalk.bold('Attempts Remaining')
+    ]
+];
+
+const validateInput = answers => {};
 
 //TODO: Pattern Matching to Get Valid Guess
 const question = [
     {
-        type: 'string',
+        type: 'number',
         name: 'guess',
-        message: 'enter a code sequence'
+        msg: 'enter a code sequence',
+        required: true,
+        type: 'string'
     }
 ];
 
@@ -26,38 +41,49 @@ const secret = [2, 1, 2, 2];
 let attempts = _defaultAttempts;
 
 function game() {
+    // Show Table
+    output = table(data, config);
+    console.log(output);
+
     if (attempts > 0) {
+        // Draw Table
         inquirer.prompt(question).then(answers => {
-            attempts--;
-            let playerGuess = answers.guess;
-            // Store Guess
-            _history.push(playerGuess);
-            // Check Guess
-            const {
-                codeMatch,
-                exactMatchCount,
-                partialMatchCount
-            } = validateGuess(playerGuess, secret);
-
-            console.log(success, exactMatchCount, partialMatchCount);
-
-            if (success) {
-                // Game Over
-                // Draw Table
-                console.log(_history);
-                console.log('Game Over');
-            } else {
-                // Partial Match
-                // Draw Table
-                // console.log(_history);
-                // console.log(secret);
-                console.log('Partial Matches or No Matches');
-
+            let re = new RegExp(/^[0-9]{4}$/);
+            if (!answers.guess.match(re)) {
+                console.log('Invalid Input, Try again');
                 game();
+            } else {
+                attempts--;
+                let playerGuess = answers.guess;
+                // Check Guess
+                const {
+                    success,
+                    exactMatchCount,
+                    partialMatchCount
+                } = validateGuess(playerGuess, secret);
+
+                // Store Guess
+                data.push([
+                    playerGuess,
+                    exactMatchCount > 0
+                        ? chalk.red.bold(exactMatchCount)
+                        : exactMatchCount,
+                    partialMatchCount > 0
+                        ? chalk.white.bold(partialMatchCount)
+                        : partialMatchCount,
+                    attempts < 2 ? chalk.bgRed.bold(attempts) : attempts
+                ]);
+
+                if (success) {
+                    console.log('Game Over: You cracked the code!');
+                } else {
+                    game();
+                }
             }
         });
     } else {
         console.log('You ran out of attempts!');
+        console.log(`The code was ${secret}`);
     }
 }
 

@@ -18,7 +18,7 @@ const validateGuess = (guess, code) => {
     for (let i = 0; i < guessArray.length; i++) {
         if (!guessMap[i]) {
             for (let j = 0; j < code.length; j++) {
-                if (!codeMap[j]) {
+                if (!codeMap[j] && !guessMap[i]) {
                     if (guessArray[i] === code[j]) {
                         codeMap[j] = 'P';
                         guessMap[i] = 'P';

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/xprmnts/mastermind-cli#readme",
   "dependencies": {
     "inquirer": "^7.3.3",
-    "prompt": "^1.1.0"
+    "prompt": "^1.1.0",
+    "table": "^6.0.7"
   }
 }
