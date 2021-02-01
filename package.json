@@ -1,0 +1,23 @@
+{
+  "name": "mastermind-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mastermind.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xprmnts/mastermind-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xprmnts/mastermind-cli/issues"
+  },
+  "homepage": "https://github.com/xprmnts/mastermind-cli#readme",
+  "dependencies": {
+    "prompt": "^1.1.0"
+  }
+}
