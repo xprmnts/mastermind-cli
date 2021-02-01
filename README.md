@@ -18,8 +18,8 @@ As the Decoder: you must break the secret code in the fewest number of guesses.
 
 ### Gameplay Instructions
 
-1. The code is 4 digits long.
-2. There are 6 possible values per digit.
+1. The code is 4 digits long. Enter a contiguous sequence of digits.
+2. There are 6 possible values per digit. Each digit must be between 1-6 (inclusive)
 3. You will have 10 attempts as the decoder to try to guess the code.
 
 # Next / Upcoming
