@@ -24,10 +24,10 @@ As the Decoder: you must break the secret code in the fewest number of guesses.
 2. There are 6 possible values per digit. Each digit must be between 1-6 (inclusive).
 3. You will have 10 attempts as the decoder to try to guess the code.
 
-# Next / Upcoming
+# Features
 
-1. Configurable Code Length
-2. Configurable Number of Choices per Peg
-3. Configure repeats
-4. Configure Allowed Attempts
-5. Configure Allowed Time
+1. Configurable Code Length - Coming Soon
+2. Configurable Number of Choices per Peg - Coming Soon
+3. Configure repeats - Coming Soon
+4. Configure Allowed Attempts - Coming Soon
+5. Configure Allowed Time - Coming Soon
