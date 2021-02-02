@@ -15,7 +15,7 @@ node mastermind.js
 
 # Game Instructions
 
-As the Codemaker: the computer will set a mystery code that will try to keep you guessing for as long as possible.
+As the Code-maker: the computer will set a mystery code that will try to keep you guessing for as long as possible.
 As the Decoder: you must break the secret code in the fewest number of guesses.
 
 ### Gameplay Instructions
