@@ -8,7 +8,7 @@ const generateSecretCode = (pegs, choices) => {
     for (let peg of secretCode) {
         const index = secretCode.indexOf(peg);
 
-        secretCode[index] = Math.floor(Math.random() * Math.floor(choices));
+        secretCode[index] = Math.floor(Math.random() * Math.floor(choices) + 1);
     }
 
     return secretCode;
